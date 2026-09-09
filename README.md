@@ -1,6 +1,3 @@
-<p align="center">
-  <img src= alt="NORA Research Lab" width="100%" />
-</p>
 
 <h1 align="center">NORA Data Extractor</h1>
 <p align="center">Extract any area from large geospatial datasets — clipped, converted, and packaged — without needing GIS software.</p>
