@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://i.ibb.co/wrCtVX29/Chat-GPT-Image-Aug-31-2026-08-04-30-AM.png" alt="NORA Research Lab" width="100%" />
+  <img src= alt="NORA Research Lab" width="100%" />
 </p>
 
 <h1 align="center">NORA Data Extractor</h1>
