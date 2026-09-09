@@ -1,0 +1,42 @@
+services:
+  - type: web
+    name: nora-data-extractor
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: standard
+    autoDeploy: true
+    healthCheckPath: /api/health
+    envVars:
+      - key: APP_NAME
+        value: NORA Data Extractor
+      - key: ENV
+        value: production
+      - key: STORAGE_BACKEND
+        value: s3
+      - key: S3_ENDPOINT_URL
+        sync: false
+      - key: S3_BUCKET
+        sync: false
+      - key: S3_ACCESS_KEY
+        sync: false
+      - key: S3_SECRET_KEY
+        sync: false
+      - key: S3_REGION
+        value: us-east-1
+      - key: AGDFS_BASE_URL
+        value: https://agdfs.onrender.com
+      - key: TEMP_DIR
+        value: /tmp/nora-extractor
+      - key: JOB_STORE_PATH
+        value: /tmp/nora-extractor/jobs.json
+      - key: MAX_WORKERS
+        value: "2"
+      - key: DATASET_REGISTRY_PATH
+        value: /app/backend/data/datasets_registry.json
+      - key: CORS_ORIGINS
+        value: '["*"]'
+
+# NOTE: Render's local disk is ephemeral and NOT shared across instances/restarts.
+# STORAGE_BACKEND=s3 (or supabase) is strongly recommended for production so that
+# output artifacts and job state survive restarts and scale past a single instance.
+# STORAGE_BACKEND=local only for quick demos on a single always-on instance.
